@@ -1,0 +1,21 @@
+class Main {
+    public static void main(String[] args) {
+       int n=121;
+       System.out.print(chkpalin(n));
+    }
+    static boolean chkpalin(int n)
+    {
+        return (n==revofnum(n));
+    }
+    static int rev=0;
+    static int revofnum(int n)
+    {
+        if(n==0)
+        {
+            return rev;
+        }
+        int rem=n%10;
+        rev=rev*10+rem;
+        return revofnum(n/10);
+    }
+}
