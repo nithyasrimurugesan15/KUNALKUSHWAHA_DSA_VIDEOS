@@ -1,0 +1,59 @@
+1st Approach:
+
+class Main {
+    public static void main(String[] args) {
+       int n=1234;
+       System.out.print(revofnum(n));
+    }
+    static int rev=0;
+    static int revofnum(int n)
+    {
+        if(n==0)
+        {
+            return rev;
+        }
+        int rem=n%10;
+        rev=rev*10+rem;
+        return revofnum(n/10);
+    }
+}
+
+(OR)
+
+class Main {
+    public static void main(String[] args) {
+        int n = 1234;
+        System.out.print(revofnum(n, 0));
+    }
+
+    static int revofnum(int n, int rev) {
+        if (n == 0) {
+            return rev;
+        }
+        return revofnum(n / 10, rev * 10 + n % 10);
+    }
+}
+
+2nd Approach:
+
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        int n = 1234;
+        int digits = (int)(Math.log10(n)) + 1;
+        System.out.print(revofnum(n, digits));
+    }
+
+    static int revofnum(int n, int digits) 
+    {
+        if (n % 10 == n) 
+        {  
+            return n;
+        }
+        int rem = n % 10;
+        return rem * (int)Math.pow(10, digits - 1) + revofnum(n / 10, digits - 1);
+    }
+}
+
+
