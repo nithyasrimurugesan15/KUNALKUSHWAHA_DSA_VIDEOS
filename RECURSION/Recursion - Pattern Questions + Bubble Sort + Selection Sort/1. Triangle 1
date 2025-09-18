@@ -1,0 +1,33 @@
+i/t : n=4
+
+* * * * 
+* * * 
+* * 
+* 
+
+class Main {
+    public static void main(String[] args) {
+        int n=4;
+        trin(n,0);
+    }
+    static void trin(int n,int c)
+    {
+      if(n==0)
+      {
+          return;
+      }
+      if(c<n)
+      {
+          System.out.print("* ");
+          trin(n,c+1);
+      }
+      else
+      {
+          System.out.println();
+          trin(n-1,0);
+      }
+    }
+}
+
+
+
