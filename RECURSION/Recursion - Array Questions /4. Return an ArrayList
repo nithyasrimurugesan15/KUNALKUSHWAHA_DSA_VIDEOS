@@ -1,0 +1,24 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,5,3,5,8};
+        int t=5;
+        ArrayList<Integer> ans=lsonmultipleo(arr,0,t,new ArrayList<>());
+        System.out.println(ans);
+        //System.out.println(lsonmultipleo(arr,0,t,new ArrayList<>()));
+    }
+    static ArrayList<Integer> lsonmultipleo(int[] arr,int i,int t,ArrayList<Integer> l)
+    {
+        if(i==arr.length)
+        {
+            return l;
+        }
+        
+        if(arr[i]==t)
+        {
+            l.add(i);
+        }
+        
+      return lsonmultipleo(arr,i+1,t,l);
+    }
+}
