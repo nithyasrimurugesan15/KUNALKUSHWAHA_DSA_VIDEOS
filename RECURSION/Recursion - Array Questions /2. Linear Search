@@ -1,0 +1,39 @@
+Returning index:
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,4,3,7,8};
+        int t=5;
+        System.out.println(linearsearch(arr,0,t));
+    }
+    static int linearsearch(int[] arr,int i,int t)
+    {
+        if(arr[i]==t)
+        {
+            return i;
+        }
+        
+        if(i==arr.length-1)
+        {
+            return -1;
+        }
+      return linearsearch(arr,i+1,t);
+    }
+}
+
+Returning true/false:
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr={1,4,3,7,8};
+        int t=7;
+        System.out.println(linearsearch(arr,0,t));
+    }
+    static boolean linearsearch(int[] arr,int i,int t)
+    { if(i==arr.length-1)
+        {
+            return false;
+        }
+       return (arr[i]==t) || linearsearch(arr,i+1,t);
+    }
+}
