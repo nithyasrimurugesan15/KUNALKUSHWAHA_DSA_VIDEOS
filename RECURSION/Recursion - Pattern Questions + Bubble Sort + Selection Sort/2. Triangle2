@@ -1,0 +1,61 @@
+* 
+* * 
+* * * 
+* * * * 
+
+
+APPROACH 1:
+
+Already triangle1 to use as : 1st fun call and swap = traingle2
+
+class Main {
+    public static void main(String[] args) {
+        int n=4;
+        trin(n,0);
+    }
+    static void trin(int n,int c)
+    {
+      if(n==0)
+      {
+          return;
+      }
+      if(c<n)
+      {
+           trin(n,c+1);
+          System.out.print("* ");
+         
+      }
+      else
+      {
+          trin(n-1,0);
+          System.out.println();
+          
+      }
+    }
+}
+
+APPROACH 2:
+
+class Main {
+    public static void main(String[] args) {
+        int s=4;
+        trin(s,1,1);
+    }
+    static void trin(int s,int n,int c)
+    {
+      if(s==0)
+      {
+          return;
+      }
+      if(n>=c)
+      {
+          System.out.print("* ");
+          trin(s,n,c+1);
+      }
+      else
+      {
+          System.out.println();
+          trin(s-1,n+1,1);
+      }
+    }
+}
