@@ -1,0 +1,33 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr[]={2,5,1,7,4};
+        selsort(arr,arr.length-1,0,0);
+        System.out.print(Arrays.toString(arr));
+    }
+    static void selsort(int[] arr,int r,int c,int max)
+    {
+      if(r==0)
+      {
+          return;
+      }
+      if(c<r)
+      {
+           if(arr[c]>arr[max])
+           {
+               selsort(arr,r,c+1,c);
+           }
+           else
+           {
+                 selsort(arr,r,c+1,max);
+           }
+      }
+      else
+      {
+          int temp=arr[max];
+               arr[max]=arr[r-1];
+               arr[r-1]=temp;
+               selsort(arr,r-1,0,0);
+      }
+    }
+}
