@@ -1,0 +1,52 @@
+Time Complexity:
+
+Best = O(n log n)
+Average = O(n log n)
+Worst = O(n²)
+
+Space Complexity:
+
+Best / Average = O(log n)
+Worst = O(n)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={3,6,1,8,4};
+        quicksort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void quicksort(int[] arr,int low,int high)
+    {
+        if(low>=high)
+        {
+            return;
+        }
+        int s=low;
+        int e=high;
+        int m=(s+e)/2;
+        int pivot=arr[m];
+        while(s<=e)
+        {
+            while(arr[s]<pivot)
+            {
+                s++;
+            }
+             while(arr[e]>pivot)
+            {
+                e--;
+            }
+            if(s<=e)
+            {
+                int temp=arr[s];
+                arr[s]=arr[e];
+                arr[e]=temp;
+                s++;
+                e--;
+            }
+        }
+        quicksort(arr,low,e);
+        quicksort(arr,s,high);
+        
+    }
+}
