@@ -3,3 +3,126 @@
 3. Merge the two sorted arrays
 
 Code:
+APPROACH 1:
+USING RETURN TYPE->ARRAYSCOPY
+
+Time Complexity: O(n log n)
+Space Complexity: O(n log n)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={3,7,2,14,6};
+        arr=mergesort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+    static int[] mergesort(int[] arr)
+    {
+        if(arr.length==1)
+        {
+            return arr;
+        }
+        int  mid=arr.length/2;
+        int[] left=mergesort(Arrays.copyOfRange(arr,0,mid));
+        int[] right=mergesort(Arrays.copyOfRange(arr,mid,arr.length));
+        return merge(left,right);
+    }
+    static int[] merge(int[] first,int[] second)
+    {
+        int[] mix=new int[first.length+second.length];
+        int i=0;
+        int j=0;
+        int k=0;
+        while(i<first.length && j< second.length)
+        {
+            if(first[i]<second[j])
+            {
+                mix[k]=first[i];
+                i++;
+            }
+            else
+            {
+                mix[k]=second[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<first.length)
+        {
+            mix[k]=first[i];
+            i++;
+            k++;
+        }
+         while(j<second.length)
+        {
+            mix[k]=second[j];
+            j++;
+            k++;
+        }
+        return mix;
+    }
+}
+
+
+APPROACH 2:
+USNG IN PLACE :
+
+Time Complexity: O(n log n)
+Space Complexity: O(n)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr={3,7,2,14,6};
+        mergesortinplace(arr,0,arr.length);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void mergesortinplace(int[] arr,int s,int e)
+    {
+        if(e-s==1)
+        {
+            return ;
+        }
+        int  mid=(s+e)/2;
+        mergesortinplace(arr,s,mid);
+        mergesortinplace(arr,mid,e);
+       mergeinplace(arr,s,mid,e);
+    }
+    static void mergeinplace(int[] arr,int s,int m,int e)
+    {
+        int[] mix=new int[e-s];
+        int i=s;
+        int j=m;
+        int k=0;
+        while(i<m && j< e)
+        {
+            if(arr[i]<arr[j])
+            {
+                mix[k]=arr[i];
+                i++;
+            }
+            else
+            {
+                mix[k]=arr[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<m)
+        {
+            mix[k]=arr[i];
+            i++;
+            k++;
+        }
+         while(j<e)
+        {
+            mix[k]=arr[j];
+            j++;
+            k++;
+        }
+       for(int l=0;l<mix.length;l++)
+       {
+           arr[s+l]=mix[l];
+       }
+    }
+}
