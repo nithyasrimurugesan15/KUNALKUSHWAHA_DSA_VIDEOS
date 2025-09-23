@@ -1,0 +1,25 @@
+T.C : O(1)
+S.C : O(1)
+
+class Main {
+    public static void main(String[] args) {
+        int n=1;
+        int isoloated=n&-n;
+        int pos=1;
+        while((isoloated>>1)!=0)
+        {
+            isoloated=isoloated>>1;
+            pos++;
+        }
+        System.out.println(pos);
+    }
+}
+
+(OR)
+
+T.C : O(1)
+S.C : O(1)
+
+int n = 18;
+int pos = Integer.numberOfTrailingZeros(n) + 1;
+System.out.println("Rightmost set bit position: " + pos);
