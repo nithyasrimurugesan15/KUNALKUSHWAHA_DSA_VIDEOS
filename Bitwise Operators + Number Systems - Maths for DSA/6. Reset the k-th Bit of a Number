@@ -1,0 +1,14 @@
+T.C : O(1)
+S.C : O(1)
+
+class Main {
+    public static void main(String[] args) {
+        int n = 10; // binary: 1010
+        int b = 0;  // bit to reset (0-indexed)
+
+        int res = n & ~(1 << b); // reset b-th bit
+
+        System.out.println(res); // print updated number
+    }
+}
+
