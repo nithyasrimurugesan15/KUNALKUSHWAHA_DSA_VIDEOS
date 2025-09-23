@@ -1,0 +1,18 @@
+T.C : O(1)
+S.C : O(1)
+
+class Main {
+    public static void main(String[] args) {
+        int n=10;
+        int b=1;
+        int res=n&(1<<b);
+        if(res!=0)
+        {
+           System.out.println("1");
+        }
+        else
+        {
+            System.out.println("0");
+        }
+    }
+}
